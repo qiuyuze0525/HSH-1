@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>遥控割草机 - 两列展示</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  h1 {
+    text-align: center;
+    color: #d50000;
+    margin-bottom: 30px;
+  }
+
+  /* 白色表格 */
+  table.info-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    overflow: hidden;
+  }
+  table.info-table td {
+    padding: 15px 10px;
+    vertical-align: top;
+    word-break: break-word; /* 手机自动换行 */
+  }
+  table.info-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  table.info-table td strong {
+    color: #333;
+  }
+
+  /* 产品左右两列 */
+  .product-row {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin-bottom: 30px;
+  }
+
+  .product {
+    flex: 1 1 48%;
+    text-align: center;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .product img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
+  }
+
+  .product-info h2 {
+    margin: 0;
+    color: #333;
+  }
+
+  .back-button {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 0;
+    padding: 10px 20px;
+    background: #d50000;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    text-align: center;
+  }
+  .back-button:hover {
+    background: #a00000;
+  }
+
+  @media (max-width: 768px) {
+    .product-row {
+      flex-wrap: wrap;
+    }
+    .product {
+      flex: 1 1 100%;
+      margin-bottom: 20px;
+    }
+  }
+
+  /* 视频弹窗 */
+  #videoModal {
+    display: none;
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  #videoModal.active { display: flex; }
+  #videoModal video {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 8px;
+    background: #000;
+  }
+  #videoModal .close-btn {
+    position: absolute;
+    top: 30px; right: 30px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>4X4 ROBOTIC LAWN MOWER</h1>
+  <table class="info-table">
+    <tr>
+      <td><strong>适合地形 Terrain Sesuai / Suitable Terrain</strong></td>
+      <td>
+        平地、园区道路、草坪<br>
+        Tanah rata, jalan kebun, padang rumput<br>
+        Flat land, garden roads, lawns
+      </td>
+    </tr>
+    <tr>
+      <td><strong>特点 / Ciri / Features</strong></td>
+      <td>
+        ✅ 操作稳定、安全 / Stabil & selamat / Stable & safe<br>
+        ✅ 省油、维护简单 / Jimat minyak, mudah diselenggara / Fuel saving, easy maintenance<br>
+        ✅ 长时间平地作业最佳 / Sesuai untuk kerja lama di tanah rata / Best for long hours on flat land
+      </td>
+    </tr>
+  </table>
+
+  <!-- 白色表格：完整参数 -->
+  <table class="info-table">
+    <tr><td><strong>型号 / Model</strong></td><td>HSH 4WHEEL 224</td></tr>
+    <tr><td><strong>发动机功率 Engine Power / Kuasa Enjin</strong></td><td>9HP</td></tr>
+    <tr><td><strong>发动机类型 Engine Type / Jenis Enjin</strong></td><td>LONCIN</td></tr>
+    <tr><td><strong>割幅宽度 Cutting Width / Lebar Potongan</strong></td><td>22.5 inch</td></tr>
+    <tr><td><strong>割草高度调节 Cutting Height Adjustment / Pelarasan Tinggi Potongan</strong></td><td>40mm & 70mm</td></tr>
+    <tr><td><strong>行走方式 Drive Type / Jenis Gerakan</strong></td><td>4WHEEL</td></tr>
+    <tr><td><strong>最大爬坡能力 Max Climbing Ability / Keupayaan Mendaki Maksimum</strong></td><td>20°</td></tr>
+    <tr><td><strong>油箱容量 Fuel Tank Capacity / Kapasiti Tangki Minyak</strong></td><td>1.5L</td></tr>
+    <tr><td><strong>工作效率 Working Efficiency / Kecekapan Kerja</strong></td><td>1500 m²/h</td></tr>
+    <tr><td><strong>遥控距离 Remote Control Range / Jarak Kawalan Jauh</strong></td><td>200m</td></tr>
+    <tr><td><strong>机器重量 Machine Weight / Berat Mesin</strong></td><td>110kg</td></tr>
+    <tr>
+      <td><strong>外形尺寸 Dimensions (L×W×H) / Dimensi (P×L×T)</strong></td>
+      <td style="white-space: normal; word-break: break-word;">
+        1300x830x430 (A)<br>
+        1200x830x430 (C)
+      </td>
+    </tr>
+  </table>
+
+  <!-- 产品左右两列 -->
+  <div class="product-row">
+    <div class="product" onclick="openVideo('video1.mp4')">
+      <img src="9.5hp alternator 4x4.jpg" alt="MEDIUM VERSION-ALTERNATOR">
+      <div class="product-info">
+        <h2>MEDIUM VERSION-ALTERNATOR</h2>
+      </div>
+    </div>
+
+    <div class="product" onclick="openVideo('video2.mp4')">
+      <img src="9.5hp alternator 4x4.jpg" alt="NORMAL VERSION-CHARGE">
+      <div class="product-info">
+        <h2>NORMAL VERSION-CHARGE</h2>
+      </div>
+    </div>
+  </div>
+  
+  <a class="back-button" href="index.html">← 返回总览</a>
+</div>
+
+<!-- 视频弹窗 -->
+<div id="videoModal" onclick="closeVideo(event)">
+  <div class="close-btn" onclick="closeVideo(event)">&times;</div>
+  <video id="videoPlayer" controls>
+    <source src="" type="video/mp4">
+    你的浏览器不支持视频播放。
+  </video>
+</div>
+
+<script>
+function openVideo(src) {
+  const modal = document.getElementById('videoModal');
+  const player = document.getElementById('videoPlayer');
+  player.src = src;
+  modal.classList.add('active');
+}
+
+function closeVideo(e) {
+  if(e.target.id === 'videoModal' || e.target.classList.contains('close-btn')) {
+    const modal = document.getElementById('videoModal');
+    const player = document.getElementById('videoPlayer');
+    player.pause();
+    player.src = '';
+    modal.classList.remove('active');
+  }
+}
+</script>
+
+</body>
+</html>
+
+

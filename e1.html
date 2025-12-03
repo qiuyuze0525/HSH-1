@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Image Buttons Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .img-btn {
+            width: 200px;       /* 图片大小可改 */
+            height: auto;
+            margin: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+        }
+
+        .back-btn {
+            margin-top: 40px;
+            padding: 12px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>HSH</h1>
+<h2>草鸡刀盘</h2>
+
+<!-- 按钮 1：刀盘厚 -->
+<a href="e1.html">
+    <img src="刀盘厚.png" class="img-btn" alt="刀盘厚">
+</a>
+
+<!-- 按钮 2：刀盘薄 -->
+<a href="e2.html">
+    <img src="刀.jpg" class="img-btn" alt="刀盘薄">
+</a>
+
+<!-- 返回上一页按钮 -->
+<br><br>
+<button class="back-btn" onclick="history.back()">返回上一页</button>
+
+</body>
+</html>
